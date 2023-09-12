@@ -12,10 +12,6 @@ public class PessoaFisica extends Pessoa{
         this.estadoCivil = estadoCivil;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
     public String getDataNacimento() {
         return dataNacimento;
     }

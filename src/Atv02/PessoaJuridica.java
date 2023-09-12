@@ -12,10 +12,6 @@ public class PessoaJuridica extends Pessoa{
         this.razaoSocial = razaoSocial;
     }
 
-    public String getCnpj() {
-        return cnpj;
-    }
-
     public String getInscricaoEstadual() {
         return inscricaoEstadual;
     }

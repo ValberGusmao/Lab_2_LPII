@@ -19,8 +19,14 @@ public class Agenda {
     public Pessoa removerContado(String identificao){
         Pessoa cRemovido;
         cRemovido = pesquisarContado(identificao);
-        if (cRemovido != null){
-            contados.remove(cRemovido);
+        if (contados.remove(cRemovido)){
+            return cRemovido;
+        }
+        return null;
+    }
+    public Pessoa removerContado(Pessoa contado) {
+        if (contados.remove(contado)){
+            return contado;
         }
         return null;
     }
@@ -38,5 +44,6 @@ public class Agenda {
         for (Pessoa c:contados){
             System.out.println(c.getIdentificaco()+" - "+c.getNome()+" - "+c.getEndereco()+" - "+c.getEmail());
         }
+        System.out.println();
     }
 }
