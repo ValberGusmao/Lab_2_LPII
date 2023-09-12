@@ -1,12 +1,12 @@
+package Atv01;
+
 public class Jogo {
-    private Acoes[][] tabuleiro;
-    private Jogador[] jogadores;
-    private Jogador jogadorAtual;
+    private final Acoes[][] tabuleiro;
+    private final Jogador[] jogadores;
 
     public Jogo(Jogador[] jogadores) {
         tabuleiro = new Acoes[3][3];
         this.jogadores = jogadores;
-        jogadorAtual = this.jogadores[0];
 
         for (int i = 0; i < tabuleiro.length; i++) {
             for (int j = 0; j < tabuleiro[0].length; j++) {
@@ -23,7 +23,7 @@ public class Jogo {
 
             if ((linha >= 0 && linha < 3) && (coluna >= 0 && coluna < 3) ){
                 if (tabuleiro[linha][coluna] == Acoes.EMPTY){
-                    tabuleiro[linha][coluna] = jogadorAtual.getMovimento();
+                    tabuleiro[linha][coluna] = getJogadorAtual().getMovimento();
                     fimDeTurno();
                     return true;
                 }
@@ -33,12 +33,11 @@ public class Jogo {
     }
 
     private void fimDeTurno() {
-        if (jogadorAtual == jogadores[0]){
-            jogadorAtual = jogadores[1];
-        }
-        else {
-            jogadorAtual = jogadores[0];
-        }
+        Jogador aux;
+        //O jogador de indice 0, é aquele que está jogando no momento
+        aux = jogadores[0];
+        jogadores[0] = jogadores[1];
+        jogadores[1] = aux;
     }
     public boolean temEspaco(){
         for (Acoes[] i: tabuleiro){
@@ -92,7 +91,13 @@ public class Jogo {
         return tabuleiro;
     }
     public Jogador getJogadorAtual() {
-        return jogadorAtual;
+        return jogadores[0];
+    }
+    public Jogador getJogadorVencedor() {
+        if (ganhouJogo() == EstadosJogo.VITORIA){
+            return jogadores[1];
+        }
+        return null;
     }
 
 }

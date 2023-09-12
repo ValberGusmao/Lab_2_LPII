@@ -1,3 +1,5 @@
+package Atv01;
+
 import java.util.Scanner;
 
 public class Main {
@@ -47,15 +49,12 @@ public class Main {
                 System.out.println("DEU VELHA");
             }
             else {
-                System.out.println("O jogador "+jogo.getJogadorAtual().getNome()+" VENCEU");
+                System.out.println("O jogador "+jogo.getJogadorVencedor().getNome()+" VENCEU");
             }
             System.out.println("DESEJA JOGAR NOVAMENTE? (S/N)");
             entrada = scanner.next();
             jogo.reiniciar();
         }while (entrada.equalsIgnoreCase("S"));
         System.out.println("OBRIGADO POR JOGAR");
-    }
-    public void desenharTabuleiro(){
-
     }
 }

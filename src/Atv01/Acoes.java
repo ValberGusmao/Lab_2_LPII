@@ -1,3 +1,5 @@
+package Atv01;
+
 public enum Acoes {
    X(1, 'X'),O(-1,'O'),EMPTY(0, ' ');
    private final int valor;
